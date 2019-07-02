@@ -1,0 +1,477 @@
+﻿$blue: #003663
+=placeholder($color)
+	&::-webkit-input-placeholder 
+		color: $color
+	&::-moz-placeholder 
+		color: $color
+	&:-ms-input-placeholder
+		color: $color
+		
+=pos
+	display: block
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	
+=obj
+	object-fit: cover
+	object-position: center
+
+=unlist
+	list-style: none
+	margin: 0
+	padding: 0
+	line-height: inherit
+	>li
+		margin: 0
+		&:before
+			display: none
+			position: static
+			left: auto
+			top: auto
+			width: auto
+			height: auto
+			background: none
+
+html
+	box-sizing: border-box
+	background-color: #ecf0f1
+
+*,:before,:after
+	box-sizing: inherit
+	//для IE10
+	flex: 0 1 auto
+
+body
+	margin: 0 auto
+	max-width: 1920px
+	position: relative
+	padding: 0
+	font: normal 500 16px/normal Montserrat,sans-serif
+	color: $blue
+
+header,footer
+	flex: 0 0 auto
+
+main
+	flex-grow: 1
+
+img,
+iframe,
+video
+	max-width: 100%
+
+a img
+	/*для IE10*/
+	border: none
+
+p
+	margin: 0 0 1.2em
+	&:last-child
+		margin: 0
+
+*:focus
+	outline: none
+
+*:invalid
+	box-shadow: none
+
+/*элементы форм*/
+input,textarea,button,select
+	font: inherit
+	color: inherit	
+	
+textarea
+	resize: none
+	overflow: auto /*опять же для IE*/
+	
+//select
+	appearance: none
+	padding: 10.5px 40px 10.5px 20px
+	background: url(../img/icons/angle.svg) no-repeat right 19px center/11px auto
+	&::-ms-expand
+		display: none
+		
+//[type=search]
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration
+		display: none
+		
+//[type=number]
+	-moz-appearance: textfield
+	&::-webkit-outer-spin-button,
+	&::-webkit-inner-spin-button
+		appearance: none
+		margin: 0
+		
+/*кнопки*/
+button,
+[type=submit],
+[type=reset],
+[type=image]
+	cursor: pointer
+.btn
+	display: inline-block
+	border: none
+	background-color: red
+	color: #fff
+	box-shadow: 0 5px 10px rgba(255,0,0,.2)
+	font:
+		weight: bold
+		size: 13.2px
+	text: 
+		transform: uppercase
+		align: center
+		shadow: none
+		decoration: none
+	line-height: 44px
+	padding: 0 64px
+	white-space: nowrap
+	overflow: hidden
+	text-overflow: ellipsis
+	max-width: 100%
+	border-radius: 100px
+	&_big
+		font-size: 18px
+		line-height: 60px
+		padding: 0 115px
+
+/*заголовки*/
+h1,h2,h3,h4,h5,h6
+	margin: 0 0 1em
+h1,h2
+	font-size: 36px
+	font-weight: bold
+	text-transform: uppercase
+	color: $blue
+	margin: 0 0 .8em
+h3
+	font-size: 24px
+	font-weight: bold
+	text-transform: uppercase
+	margin: 0 0 .75em
+
+/*списки*/
+ul,ol
+	margin: 0 0 1em
+	
+ul
+	list-style: none
+	padding: 0 0 0 33px
+	line-height: 36/22*1
+	>li
+		position: relative
+		&:before
+			content: ''
+			display: inline-block
+			width: 20px
+			height: 17px
+			background: url(../img/icons/heart.svg) no-repeat center/contain
+			position: absolute
+			left: -32px
+			top: calc(.9em - 8.5px)
+			
+/*таблицы*/
+caption
+	font-size: 36px
+	font-weight: bold
+	text-transform: uppercase
+	text-align: center
+	clear: both
+	padding: 0 0 .7em
+table
+	width: 100%
+	border-collapse: collapse
+	table-layout: fixed
+	font-weight: 500
+	text-align: center
+	margin: 0 0 2.1em
+td,th
+	border: 1px solid #bed73c
+	padding: 8px
+	&:first-child
+		border-left: none
+		text-align: left
+		padding-left: 0
+	&:last-child
+		border-right: none
+		padding-right: 0
+th
+	font-weight: bold
+	text-align: inherit
+	color: red
+thead
+	th
+		border-top: none
+/*контейнеры*/
+.wrapper
+	max-width: 1170px
+	margin: 0 auto
+	padding: 0 30px
+.box
+	display: flex
+	flex-wrap: wrap
+	margin: 0 -15px
+
+/*ШАПКА*/
+.logo
+	display: inline-block
+	img
+		display: block
+		width: 100%
+		height: auto
+.header
+	position: absolute
+	top: 40px
+	left: 0
+	width: 100%
+	z-index: 2
+	&__wrapper
+		display: flex
+		align-items: flex-end
+		justify-content: space-between
+	&__logo
+		width: 350px
+		margin: 0 15px 11px 0
+/*ОСНОВНОЕ СОДЕРЖИМОЕ*/
+.top-block
+	background: url(../img/top.png) no-repeat center/auto 100%
+	padding: 145px 0 168px
+	color: #fff
+	&__slide
+		overflow: hidden		
+		&:not(.slick-slide):nth-child(n+2)
+			display: none
+	&__logo
+		display: block
+		width: 540px
+		margin: 0 0 23px
+	&__text
+		overflow: hidden
+		width: 640px
+		float: left
+		font-weight: bold
+		font-size: 20px
+		line-height: 1.2
+		margin: 0 0 35px
+		h3
+			text-transform: none
+			color: $blue
+			line-height: normal
+			margin: 0 0 .9em
+		h4
+			font-size: 24px
+			line-height: 36/24*1
+			margin: 0
+		ul
+			font-size: 22px
+			margin: 0 0 3em
+	&__sidebar
+		width: 453px
+		float: right
+		margin: 11px 0 0 15px
+		&_small
+			width: 365px
+			margin-top: 34px
+	&__img
+		display: block
+		&:not(:last-child)
+			margin: 0 0 23px
+.pills
+	display: flex
+	align-items: flex-start
+	width: 338px
+	max-width: 100%
+	margin: 0 9px 0 auto
+	color: $blue
+	font-size: 14px
+	&__img
+		width: 165px
+		flex: 0 0 auto			
+	&__text
+		width: calc(100% - 165px)
+		flex: 1 1 auto
+		margin: 30px 0 0
+	&__title
+		font-size: inherit
+		margin: 0
+.indications
+	color: $blue
+	float: left
+	&_full
+		float: none
+	&__title
+		text-transform: none
+		margin: 0 0 .9em
+	&__list
+		+unlist
+		display: flex
+		flex-wrap: wrap
+		margin: 0 -15px
+		font-size: 18px
+		font-weight: bold
+		>li
+			display: flex
+			align-items: center
+			width: 350px
+			margin: 0 15px 27px
+			&:before
+				content: ''
+				display: block
+				width: 53px
+				height: 64px
+				background: url(../img/icons/cardiogram.svg) no-repeat center/contain
+				margin: 0 14px 0 0
+				flex: 0 0 auto
+			>span
+				display: inline-block
+				width: calc(100% - 67px)
+				flex: 1 1 auto
+	&__footer
+		font-size: 18px
+		text-align: center
+.chars
+	position: relative
+	margin: -168px 0 0
+	&__inner
+		max-width: 1110px
+		margin: 0 auto
+		background-color: #fff
+		border-radius: 10px
+		padding: 28px 33px 42px
+		box-shadow: 0 3px 10px rgba(0,0,0,.15)
+.card
+	width: 255px
+	margin: 0 15px 30px
+	font-size: 14px
+	text-align: center
+	&__pic
+		width: 167px
+		height: 167px
+		margin: 0 auto 24px
+		position: relative
+		border-radius: 50%
+		padding: 8px
+		&:before
+			content: ''
+			+pos
+			border-radius: inherit
+			border: 3px solid #bed73c
+			mask: linear-gradient(to right,black calc(50% - 10px),transparent calc(50% - 10px),transparent calc(50% + 10px),black calc(50% + 10px))
+		img
+			display: block
+			width: 100%
+			height: 100%
+			border-radius: inherit
+			+obj
+	&__title
+		font-size: inherit
+		text-transform: none
+		margin: 0 0 1em
+		
+.composition
+	padding: 59px 0 0
+	&__title
+		text-align: center
+.instructions
+	background: url(../img/doc.png) no-repeat center/auto 100%
+	padding: 195px 0 190px
+	margin: -25px 0 0
+	&__text
+		max-width: 445px
+		margin: 0 0 0 auto
+		h3
+			&:not(:first-child)
+				margin: 1.9em 0 .5em
+		img
+			width: 100px
+			margin: .4em 0 0
+.description
+	margin: -122px 0 0
+	background: url(../img/old-woman.png) no-repeat center/auto 100%
+	padding: 515px 0 253px
+	&__text
+		max-width: 460px
+		font-size: 24px
+		font-weight: 500
+		img
+			width: 100px
+			margin: .7em 0 0
+	&__title
+		margin: 0 0 .7em
+.eac
+	padding: 277px 0 267px
+	background: url(../img/old-man.png) no-repeat center/auto 100%
+	&__content
+		max-width: 542px
+		position: relative
+		margin: 0 0 0 auto
+	&__img
+		display: block
+	&__logo
+		position: absolute
+		top: calc(100% - 12px)
+		right: 5px
+		width: 103px
+.manufacturer
+	margin: -77px 0 0
+	text-align: center
+	font-size: 24px
+	line-height: 36/24*1
+	font-weight: 500
+	&__title
+		margin: 0 0 1.4em
+	&__logo
+		width: 269px
+		margin: 1.8em 0 0
+.logistics
+	padding: 185px 0 70px
+	margin: -61px 0 0
+	background: url(../img/bottom.png) no-repeat center/auto 100%,linear-gradient(to bottom,transparent 50%,$blue 50%)
+	text-align: center	
+	&__title
+		color: #fff
+		margin: 0
+	&__map
+		width: 683px
+		margin: 0 auto 13px
+	&__text
+		font-size: 18px
+		font-weight: bold
+		text-transform: uppercase
+		max-width: 540px
+		margin: 0 auto 2em
+/*ПОДВАЛ*/
+.footer
+	padding: 20px 0 30px
+	background-color: $blue
+	color: #fff
+	font-size: 14px
+	font-weight: 500
+	text-align: center
+	&__notation
+		color: rgba(255,255,255,.2)
+		font-weight: bold
+		text-transform: uppercase
+		font-family: 'Bebas Neue'
+		font-size: 46.8px
+		margin: 0 0 .36em
+		strong
+			display: block
+			font-size: 60/44.71*1em
+	&__text
+		max-width: 520px
+		margin: 0 auto 1.7em
+		p
+			margin: 0 0 1.4em
+			&:last-child
+				margin: 0
+	&__logo
+		width: 248px
+		
+/*АДАПТИВ*/
+@import "adaptive"
