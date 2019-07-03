@@ -209,9 +209,9 @@ thead
 		border-top: none
 /*контейнеры*/
 .wrapper
-	max-width: 1170px
+	max-width: 1140px
 	margin: 0 auto
-	padding: 0 30px
+	padding: 0 15px
 .box
 	display: flex
 	flex-wrap: wrap
@@ -239,9 +239,16 @@ thead
 		margin: 0 15px 11px 0
 /*ОСНОВНОЕ СОДЕРЖИМОЕ*/
 .top-block
-	background: url(../img/top.png) no-repeat center/auto 100%
-	padding: 145px 0 168px
-	color: #fff
+	background: url(../img/top.png) no-repeat center top
+	padding: 145px 0 0
+	position: relative
+	&:after
+		content: url(../img/icons/heart-o.svg)
+		display: inline-block
+		position: absolute
+		z-index: -1
+		bottom: -58px
+		left: calc(50% - 689px)
 	&__slide
 		overflow: hidden		
 		&:not(.slick-slide):nth-child(n+2)
@@ -250,19 +257,20 @@ thead
 		display: block
 		width: 540px
 		margin: 0 0 23px
+	&__head,
 	&__text
 		overflow: hidden
 		width: 640px
-		float: left
 		font-weight: bold
 		font-size: 20px
 		line-height: 1.2
+	&__title
+		text-transform: none
+		line-height: normal
+		margin: 0 0 .9em		
+	&__text
 		margin: 0 0 35px
-		h3
-			text-transform: none
-			color: $blue
-			line-height: normal
-			margin: 0 0 .9em
+		color: #fff
 		h4
 			font-size: 24px
 			line-height: 36/24*1
@@ -287,7 +295,6 @@ thead
 	width: 338px
 	max-width: 100%
 	margin: 0 9px 0 auto
-	color: $blue
 	font-size: 14px
 	&__img
 		width: 165px
@@ -300,8 +307,8 @@ thead
 		font-size: inherit
 		margin: 0
 .indications
-	color: $blue
 	float: left
+	margin: 0 0 1em
 	&_full
 		float: none
 	&__title
@@ -336,14 +343,11 @@ thead
 		text-align: center
 .chars
 	position: relative
-	margin: -168px 0 0
-	&__inner
-		max-width: 1110px
-		margin: 0 auto
-		background-color: #fff
-		border-radius: 10px
-		padding: 28px 33px 42px
-		box-shadow: 0 3px 10px rgba(0,0,0,.15)
+	clear: both
+	border-radius: 10px
+	padding: 28px 33px 42px
+	box-shadow: 0 3px 10px rgba(0,0,0,.15)
+	background-color: #fff
 .card
 	width: 255px
 	margin: 0 15px 30px
@@ -356,6 +360,7 @@ thead
 		position: relative
 		border-radius: 50%
 		padding: 8px
+		background-color: #ecf0f1
 		&:before
 			content: ''
 			+pos
@@ -375,25 +380,71 @@ thead
 		
 .composition
 	padding: 59px 0 0
+	position: relative
+	&:before,
+	&:after
+		content: ''
+		display: block
+		position: absolute
+		width: 280px
+		height: 400px
+		z-index: -1
+	&:before
+		background: url(../img/icons/circle-green.svg)
+		left: calc(50% + 488px)
+		top: -123px
+	&:after
+		background: url(../img/icons/circle-white.svg)
+		bottom: -201px
+		left: calc(50% - 722px)
 	&__title
 		text-align: center
 .instructions
 	background: url(../img/doc.png) no-repeat center/auto 100%
-	padding: 195px 0 190px
+	padding: 195px 0 320px
 	margin: -25px 0 0
+	position: relative
+	&:before,
+	&:after
+		content: ''
+		display: block
+		width: 280px
+		height: 400px
+		position: absolute
+		z-index: -1
+		background: url(../img/icons/circle-white.svg)
+	&:before
+		top: 432px
+		left: calc(50% + 351px)
+	&:after
+		top: calc(100% - 171px)
+		left: calc(50% - 313px)
 	&__text
 		max-width: 445px
 		margin: 0 0 0 auto
+		position: relative
 		h3
 			&:not(:first-child)
 				margin: 1.9em 0 .5em
 		img
 			width: 100px
-			margin: .4em 0 0
+			position: absolute
+			top: calc(100% + 27px)
+			left: 2px
 .description
 	margin: -122px 0 0
 	background: url(../img/old-woman.png) no-repeat center/auto 100%
 	padding: 515px 0 253px
+	position: relative
+	&:after
+		content: ''
+		display: block
+		width: 280px
+		height: 400px
+		position: absolute
+		background: url(../img/icons/circle-white.svg)
+		left: calc(50% - 605px)
+		bottom: -183px
 	&__text
 		max-width: 460px
 		font-size: 24px
@@ -406,12 +457,23 @@ thead
 .eac
 	padding: 277px 0 267px
 	background: url(../img/old-man.png) no-repeat center/auto 100%
+	position: relative
+	&:before
+		content: ''
+		display: block
+		position: absolute
+		background: url(../img/icons/circle-white.svg)
+		width: 280px
+		height: 550px
+		bottom: 8px
+		left: calc(50% + 355px)
 	&__content
 		max-width: 542px
 		position: relative
 		margin: 0 0 0 auto
 	&__img
 		display: block
+		position: relative
 	&__logo
 		position: absolute
 		top: calc(100% - 12px)
@@ -423,6 +485,24 @@ thead
 	font-size: 24px
 	line-height: 36/24*1
 	font-weight: 500
+	position: relative
+	&:before,
+	&:after
+		content: ''
+		display: block
+		width: 280px
+		height: 280px
+		position: absolute		
+	&:before
+		background: url(../img/icons/circle-white.svg)
+		top: -143px
+		left: calc(50% - 607px)
+		opacity: .42
+		z-index: -1
+	&:after
+		background: url(../img/icons/circle-green.svg)
+		top: 81px
+		left: calc(50% + 356px)
 	&__title
 		margin: 0 0 1.4em
 	&__logo
@@ -432,7 +512,7 @@ thead
 	padding: 185px 0 70px
 	margin: -61px 0 0
 	background: url(../img/bottom.png) no-repeat center/auto 100%,linear-gradient(to bottom,transparent 50%,$blue 50%)
-	text-align: center	
+	text-align: center
 	&__title
 		color: #fff
 		margin: 0
@@ -457,7 +537,7 @@ thead
 		color: rgba(255,255,255,.2)
 		font-weight: bold
 		text-transform: uppercase
-		font-family: 'Bebas Neue'
+		font-family: 'Bebas Neue',sans-serif
 		font-size: 46.8px
 		margin: 0 0 .36em
 		strong

@@ -1,12 +1,279 @@
-﻿@media(max-width:1199px)
+﻿@media(max-width: 1559px)
+	.chars,
+	.composition,
+	.instructions,
+	.description,
+	.eac,
+	.manufacturer
+		&:before,
+		&:after
+			display: none
+@media(max-width:1139px)
 	.wrapper
 		max-width: 992px
+	.top-block
+		background-size: auto 1130px
+		&__wrapper
+			display: flex
+			flex-direction: column
+			height: 100%			
+		&__head,
+		&__text
+			width: auto
+			float: none
+			overflow: visible
+		&__head
+			order: -1
+		&__text			
+			margin: 0
+			color: inherit
+			order: 3
+			ul
+				margin: 0 0 1em
+		&__sidebar
+			width: auto
+			float: none
+			margin: 0
+			&_small
+				order: 1
+				margin: auto 0 0
+		&__img
+			margin: 0 auto
+			max-width: 273px
+			max-height: 432px
+			&:not(:last-child)
+				margin: 0 auto
+	.pills
+		margin: 0 auto
+	.chars
+		order: 2
+		margin: 0 0 30px
+	.composition
+		&__box
+			margin: 0 auto
+			max-width: 620px
+			justify-content: center
+	.footer
+		&__notation
+			font-size: 40px
   
-//@media(max-width:991px)
-	
-
-//@media(max-width:767px)
-	
+@media(max-width:991px)
+	.instructions
+		padding: 63vw 0 45px
+		background-position: left top
+		background-size: 130% auto
+		&__text
+			max-width: 100%
+			h3
+				text-align: center
+			img
+				position: static
+				display: block
+				margin: 1em auto
+	.description
+		margin: 0
+		padding: 81vw 0 40px
+		background-position: right top
+		background-size: 140% auto
+		&__title
+			text-align: center
+		&__text
+			max-width: 100%
+			img
+				display: block
+				margin: .7em auto 0
+	.eac
+		background-size: 130% auto
+		background-position: left top
+		padding: 55vw 0 20px
+		&__content
+			max-width: 100%
+		&__img
+			max-height: 252px
+			margin: 0 auto 20px
+		&__logo
+			position: static
+			display: block
+			margin: 0 auto
+	.manufacturer
+		margin: 0
+		padding: 20px 0
+		
+@media(max-width:767px)
+	html
+		background: none
+	.wrapper
+		overflow: hidden
+	body
+		font-size: 14px
+	h1,h2
+		font-size: 24px
+	h3
+		font-size: 18px
+	table
+		text-align: inherit
+		line-height: 24/14*1
+		margin: 0 0 1.5em
+	caption
+		display: block
+		font-size: 24px
+		text-align: inherit
+		padding: 0 0 .4em
+		line-height: normal
+	table,
+	thead,
+	tbody,
+	tr
+		display: block
+	td,th
+		display: inline
+		border: none
+		padding: 0
+		&:not(:last-child):after
+			content: ' / '
+	.btn
+		&_big
+			font-size: 13.2px
+			line-height: 44px
+			padding: 0 64px
+	.header
+		top: 31px
+		text-align: center
+		&__wrapper
+			display: block
+		&__logo
+			display: block
+			width: 248px
+			margin: 0 auto 30px
+		&__btn
+			vertical-align: top
+			background-color: #ffd34e
+			box-shadow: 0 5px 10px transparentize(#ffd34e,.8)
+	.top-block
+		padding: 173px 0 0
+		&__logo
+			margin: 0 0 21px
+		&__title
+			margin: 0 0 .5em
+		&__text
+			font-size: 14px
+			line-height: 24/14*1
+			font-weight: inherit
+			h4
+				font-size: 16px
+			ul
+				font-size: 16px
+				font-weight: bold
+	.pills
+		width: 290px
+		font-size: 13px
+		margin: 0 auto -20px
+		&__img
+			width: 129px
+			height: 128px
+			+obj
+		&__text
+			margin-top: 27px
+			width: calc(100% - 129px)
+	.indications
+		margin: 0
+		&_full
+			margin: 0 0 3.5em
+		&__title
+			font-size: inherit
+		&__list
+			font-size: inherit
+			>li
+				margin: 0 15px .9em
+				&:before
+					width: 44px
+					height: 53px
+					margin: 0 17px 0 0
+		&__footer
+			font-size: inherit
+	.chars
+		padding: 17px 15px 20px
+		margin: 0 0 20px
+	.card
+		&__pic
+			width: 161px
+			height: 161px
+			padding: 5px
+			margin: 0 auto 30px
+			&:before
+				top: -3px
+				left: -3px
+				width: calc(100% + 6px)
+				height: calc(100% + 6px)
+	.composition
+		padding: 17px 0 0
+		&__title
+			margin: 0 0 1em
+		&__box
+			max-width: calc(100% + 30px)
+			max-width: unset
+			margin: 0 -15px
+	.instructions
+		margin: 0
+		background-size: auto 503px
+		background-position: 28% 0
+		padding: 447px 0 64px
+	.description	
+		background-size: auto 564px
+		background-position: 73.3% 0
+		padding: 536px 0 30px
+		&__text
+			font-size: 16px
+			img
+				margin: 1.7em auto 0
+	.eac
+		background-size: auto 502px
+		background-position: 27.3% 0
+		padding: 434px 0 20px
+		&__logo
+			width: 81px
+		&__img
+			margin: 0 auto 29px
+	.manufacturer
+		padding: 18px 0
+		font-size: inherit
+		line-height: normal
+		.wrapper
+			padding: 0 10px
+		&__title
+			margin: 0 0 .7em
+		br
+			display: none
+		&__logo
+			width: 198px
+			margin: 0
+	.logistics
+		margin: 0
+		padding: 90px 0 80px
+		background-position: center bottom,center
+		background-size: auto calc(100% + 110px),auto
+		&__title
+			margin: 0 0 1.5em
+		&__map
+			margin: 0 auto 56px
+		&__text
+			margin: 0 auto 3.6em
+		&__btn
+			padding: 0 15px
+			display: block
+			width: 100%
+			max-width: 256px
+	.footer
+		padding: 10px 0 76px
+		font-size: 12px
+		&__notation
+			font-size: 15px
+			margin: 0 0 3em
+		&__text
+			margin: 0 auto 4.2em
+			p
+				&:first-child
+					display: none
 
 //@media(max-width:480px)
 	
