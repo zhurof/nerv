@@ -135,10 +135,20 @@ button,
 	text-overflow: ellipsis
 	max-width: 100%
 	border-radius: 100px
+	&:active
+		background-color: #de0000
+		box-shadow: none
 	&_big
 		font-size: 18px
 		line-height: 60px
 		padding: 0 115px
+	&_small
+		padding: 0 10px
+	&_green
+		background-color: #64993c
+		box-shadow: 0 5px 10px transparentize(#64993c,.8)
+		&:active
+			background-color: #3e7812
 
 /*заголовки*/
 h1,h2,h3,h4,h5,h6
@@ -525,6 +535,50 @@ thead
 		text-transform: uppercase
 		max-width: 540px
 		margin: 0 auto 2em
+.widget
+	position: fixed
+	z-index: 3
+	right: -247px
+	top: 50%
+	transform: translateY(-50%)
+	transition: all .3s ease-in
+	&.active
+		right: 0
+	&__head-btn
+		border-radius: 20px 20px 0 0
+		line-height: 48px
+		font-size: 24px
+		box-shadow: none
+		transform-origin: center bottom
+		position: absolute
+		bottom: 50%
+		right: 100%
+		transform: translateX(50%) rotate(-90deg)
+	&__body
+		width: 247px
+		min-height: 368px
+		border: 1px solid #63973b
+		border-radius: 10px 0 0 10px
+		border-right: none
+		background-color: #fff
+		box-shadow: 0 5px 10px rgba(0,0,0,.15)
+		padding: 45px 10px 72px
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: flex-start
+		position: relative
+	&__item
+		display: block
+		width: 100%
+		margin: 23px 0
+	&__btn
+		display: block
+		position: absolute
+		bottom: 28px
+		left: 10px
+		width: calc(100% - 20px)
+		
 /*ПОДВАЛ*/
 .footer
 	padding: 20px 0 30px

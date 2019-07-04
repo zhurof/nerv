@@ -1,4 +1,17 @@
-﻿@media(max-width: 1559px)
+﻿@media(min-width: 992px)
+	.btn
+		transition: all .2s ease-out
+		&:hover
+			background-color: #ff4616
+		&:active
+			background-color: #de0000
+		&_green
+			&:hover
+				background-color: #71c035
+			&:active
+				background-color: #3e7812
+				
+@media(max-width: 1559px)
 	.chars,
 	.composition,
 	.instructions,
@@ -271,9 +284,3 @@
 			margin: 0 0 3em
 		&__text
 			margin: 0 auto 4.2em
-			p
-				&:first-child
-					display: none
-
-//@media(max-width:480px)
-	
