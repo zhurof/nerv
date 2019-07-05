@@ -87,6 +87,20 @@ textarea
 	resize: none
 	overflow: auto /*опять же для IE*/
 	
+[type=text],
+[type=tel],
+[type=email],
+[type=url],
+[type=password],
+textarea
+	display: block
+	width: 100%
+	padding: 10px
+	background: none
+	border: 1px solid #ccc
+	border-radius: 10px
+	margin: 0 0 18px
+	
 //select
 	appearance: none
 	padding: 10.5px 40px 10.5px 20px
@@ -107,6 +121,13 @@ textarea
 	&::-webkit-inner-spin-button
 		appearance: none
 		margin: 0
+		
+.field
+	display: block
+	text-align: left
+	&__label
+		display: block
+		margin: 0 0 .2em
 		
 /*кнопки*/
 button,
@@ -226,6 +247,57 @@ thead
 	display: flex
 	flex-wrap: wrap
 	margin: 0 -15px
+/*модальное окно*/
+.modal-wrapper
+	position: fixed
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	z-index: 100
+	background-color: rgba(0, 0, 0, 0.81)
+	padding: 20px 10px
+	overflow: auto
+	display: flex
+	flex-direction: column
+	.modal
+		display: block
+.modal
+	display: none
+	background-color: #fff
+	box-shadow: 0 5px 10px rgba(0,0,0,.12)
+	width: 100%
+	max-width: 377px
+	position: relative
+	margin: auto
+	flex: 0 0 auto
+	padding: 30px
+	text-align: center
+	&__close
+		position: absolute
+		font-size: 19px
+		line-height: 1
+		padding: 10px
+		top: 0
+		right: 0
+		cursor: pointer
+/*элементы слайдера*/
+.slick-dots
+	+unlist
+	padding: 5px 15px
+	text-align: center
+	li
+		display: inline-block
+		vertical-align: top
+		margin: 5px
+		width: 10px
+		height: 10px
+		border: 2px solid $blue
+		border-radius: 50%
+		transition: all .2s ease
+		cursor: pointer
+	.slick-active
+		background-color: $blue
 
 /*ШАПКА*/
 .logo
@@ -536,15 +608,17 @@ thead
 		max-width: 540px
 		margin: 0 auto 2em
 .widget
-	position: fixed
-	z-index: 3
-	right: -247px
-	top: 50%
-	transform: translateY(-50%)
-	transition: all .3s ease-in
-	&.active
-		right: 0
-	&__head-btn
+	position: relative	
+	&.fixed
+		position: fixed
+		z-index: 3
+		right: -247px
+		top: 50%
+		transform: translateY(-50%)
+		transition: all .3s ease-in
+		&.active
+			right: 0		
+	&.fixed &__head-btn
 		border-radius: 20px 20px 0 0
 		line-height: 48px
 		font-size: 24px
@@ -558,16 +632,26 @@ thead
 		width: 247px
 		min-height: 368px
 		border: 1px solid #63973b
-		border-radius: 10px 0 0 10px
-		border-right: none
+		border-radius: 10px
 		background-color: #fff
 		box-shadow: 0 5px 10px rgba(0,0,0,.15)
 		padding: 45px 10px 72px
-		display: flex
+		display: none
 		flex-direction: column
 		justify-content: center
 		align-items: flex-start
+		position: absolute
+		top: calc(100% + 10px)
+		left: calc(50% - 123.5px)
+	&.active &__body
+		display: flex
+	&.fixed &__body
+		display: flex
 		position: relative
+		top: auto
+		left: auto
+		border-radius: 10px 0 0 10px
+		border-right: none
 	&__item
 		display: block
 		width: 100%

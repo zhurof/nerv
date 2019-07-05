@@ -59,6 +59,27 @@ textarea {
   resize: none;
   overflow: auto; }
 
+[type=text],
+[type=tel],
+[type=email],
+[type=url],
+[type=password],
+textarea {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin: 0 0 18px; }
+
+.field {
+  display: block;
+  text-align: left; }
+  .field__label {
+    display: block;
+    margin: 0 0 0.2em; }
+
 /*кнопки */
 button,
 [type=submit],
@@ -189,6 +210,82 @@ thead th {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 -15px; }
+
+/*модальное окно */
+.modal-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.81);
+  padding: 20px 10px;
+  overflow: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .modal-wrapper .modal {
+    display: block; }
+
+.modal {
+  display: none;
+  background-color: #fff;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  max-width: 377px;
+  position: relative;
+  margin: auto;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  padding: 30px;
+  text-align: center; }
+  .modal__close {
+    position: absolute;
+    font-size: 19px;
+    line-height: 1;
+    padding: 10px;
+    top: 0;
+    right: 0;
+    cursor: pointer; }
+
+/*элементы слайдера */
+.slick-dots {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: inherit;
+  padding: 5px 15px;
+  text-align: center; }
+  .slick-dots > li {
+    margin: 0; }
+    .slick-dots > li:before {
+      display: none;
+      position: static;
+      left: auto;
+      top: auto;
+      width: auto;
+      height: auto;
+      background: none; }
+  .slick-dots li {
+    display: inline-block;
+    vertical-align: top;
+    margin: 5px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid #003663;
+    border-radius: 50%;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    cursor: pointer; }
+  .slick-dots .slick-active {
+    background-color: #003663; }
 
 /*ШАПКА */
 .logo {
@@ -555,17 +652,19 @@ thead th {
     margin: 0 auto 2em; }
 
 .widget {
-  position: fixed;
-  z-index: 3;
-  right: -247px;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  -webkit-transition: all 0.3s ease-in;
-  transition: all 0.3s ease-in; }
-  .widget.active {
-    right: 0; }
-  .widget__head-btn {
+  position: relative; }
+  .widget.fixed {
+    position: fixed;
+    z-index: 3;
+    right: -247px;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+            transform: translateY(-50%);
+    -webkit-transition: all 0.3s ease-in;
+    transition: all 0.3s ease-in; }
+    .widget.fixed.active {
+      right: 0; }
+  .widget.fixed .widget__head-btn {
     border-radius: 20px 20px 0 0;
     line-height: 48px;
     font-size: 24px;
@@ -582,15 +681,12 @@ thead th {
     width: 247px;
     min-height: 368px;
     border: 1px solid #63973b;
-    border-radius: 10px 0 0 10px;
-    border-right: none;
+    border-radius: 10px;
     background-color: #fff;
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
     padding: 45px 10px 72px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
+    display: none;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -601,7 +697,22 @@ thead th {
     -webkit-box-align: start;
         -ms-flex-align: start;
             align-items: flex-start;
-    position: relative; }
+    position: absolute;
+    top: calc(100% + 10px);
+    left: calc(50% - 123.5px); }
+  .widget.active .widget__body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex; }
+  .widget.fixed .widget__body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative;
+    top: auto;
+    left: auto;
+    border-radius: 10px 0 0 10px;
+    border-right: none; }
   .widget__item {
     display: block;
     width: 100%;
