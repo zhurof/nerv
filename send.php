@@ -2,8 +2,8 @@
 //$headers = "From: Оставлена заявка: bla<bla>\r\n"; 
 
 function checkGoogleRecaptcha() {	
-	$secret='';
-	$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$_POST['response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
+	$secret='6LfSva0UAAAAAP538tLNyc3TVgucJjqbqNDTn822';
+	$response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secret."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 
 	$response = json_decode($response, true);
 

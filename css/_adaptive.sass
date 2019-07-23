@@ -12,6 +12,16 @@
 				background-color: #3e7812
 				
 @media(max-width: 1559px)
+	.top-block
+		&__arrows
+			padding: 0 5px
+		&__arrow
+			top: calc(50vh - 220px)
+			&_prev
+				left: auto
+			&_next
+				left: auto
+				float: right
 	.chars,
 	.composition,
 	.instructions,
@@ -115,8 +125,6 @@
 @media(max-width:767px)
 	html
 		background: none
-	.wrapper
-		overflow: hidden
 	body
 		font-size: 14px
 	h1,h2
@@ -149,6 +157,8 @@
 			font-size: 13.2px
 			line-height: 44px
 			padding: 0 64px
+	.modal
+		padding: 30px 15px
 	.header
 		top: 31px
 		text-align: center

@@ -1,4 +1,5 @@
 ﻿$blue: #003663
+$green: #64993c
 =placeholder($color)
 	&::-webkit-input-placeholder 
 		color: $color
@@ -129,6 +130,12 @@ textarea
 		display: block
 		margin: 0 0 .2em
 		
+.g-recaptcha
+	margin: 0 0 18px
+	>div
+		max-width: 100%
+		overflow: hidden
+		
 /*кнопки*/
 button,
 [type=submit],
@@ -164,7 +171,7 @@ button,
 		line-height: 60px
 		padding: 0 115px
 	&_small
-		padding: 0 10px
+		padding: 0 14px
 	&_green
 		background-color: #64993c
 		box-shadow: 0 5px 10px transparentize(#64993c,.8)
@@ -335,6 +342,30 @@ thead
 		overflow: hidden		
 		&:not(.slick-slide):nth-child(n+2)
 			display: none
+	&__arrows
+		+pos
+	&__arrow
+		display: block
+		position: absolute
+		top: calc(50% - 15px)
+		width: 30px
+		height: 30px
+		border-radius: 50%
+		background-color: rgba(0,0,0,.5)
+		cursor: pointer
+		z-index: 2
+		background-repeat: no-repeat
+		background-position: center
+		background-size: auto 50%
+		@supports(position: sticky)
+			position: sticky
+			top: calc(50vh - 25px)
+		&_prev
+			left: calc(50% - 600px)
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQuMzg3IiBoZWlnaHQ9IjI1LjM2NSIgdmlld0JveD0iMCAwIDE0LjM4NyAyNS4zNjUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTIuNSAxMy4xNDEtMS44ODY1LTEuNjQwNWMtMC44NDYzMiAwLjk3MzMtMC44MTMzMyAyLjQzMDYgMC4wNzYxNyAzLjM2NDZ6bTExLjgxIDguNzc1OC0xMC0xMC41LTMuNjIwNyAzLjQ0ODMgMTAgMTAuNXptLTMuNjk2OC0yMS45MTYtMTAgMTEuNSAzLjc3MyAzLjI4MDkgMTAtMTEuNXoiIGZpbGw9IiNmZmYiLz48L3N2Zz4NCg==)
+		&_next
+			left: calc(50% + 570px)
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQuMzg2IiBoZWlnaHQ9IjI1LjM2NSIgdmlld0JveD0iMCAwIDE0LjM4NiAyNS4zNjUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0ibTExLjg4NiAxMi4yMjQgMS44ODY1IDEuNjQwNWMwLjg0NjMtMC45NzMzIDAuODEzMy0yLjQzMDYtMC4wNzYxLTMuMzY0NnptLTExLjgxLTguNzc1OCAxMCAxMC41IDMuNjIwNy0zLjQ0ODMtMTAtMTAuNXptMy42OTY4IDIxLjkxNiAxMC0xMS41LTMuNzczLTMuMjgwOS0xMCAxMS41eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg0K)	
 	&__logo
 		display: block
 		width: 540px
@@ -629,29 +660,52 @@ thead
 		right: 100%
 		transform: translateX(50%) rotate(-90deg)
 	&__body
-		width: 247px
+		width: 490px
+		max-width: calc(100vw - 30px)
 		min-height: 368px
 		border: 1px solid #63973b
 		border-radius: 10px
 		background-color: #fff
 		box-shadow: 0 5px 10px rgba(0,0,0,.15)
-		padding: 45px 10px 72px
+		padding: 18px 20px 72px
 		display: none
 		flex-direction: column
 		justify-content: center
 		align-items: flex-start
 		position: absolute
 		top: calc(100% + 10px)
-		left: calc(50% - 123.5px)
+		left: 50%
+		z-index: 4
+		transform: translateX(-50%)
 	&.active &__body
 		display: flex
 	&.fixed &__body
+		width: 247px
 		display: flex
 		position: relative
 		top: auto
 		left: auto
+		transform: none
 		border-radius: 10px 0 0 10px
 		border-right: none
+		padding: 45px 10px 72px
+	&__title
+		width: 100%
+		text-align: left
+		color: $green
+		padding: 0 0 16px
+		border-bottom: 2px solid #ebebeb
+	&__close
+		display: inline-block
+		color: red
+		position: absolute
+		top: 0
+		right: 0
+		font-size: 18px
+		line-height: 1
+		padding: 10px
+		cursor: pointer
+		user-select: none		
 	&__item
 		display: block
 		width: 100%
@@ -660,8 +714,16 @@ thead
 		display: block
 		position: absolute
 		bottom: 28px
-		left: 10px
-		width: calc(100% - 20px)
+		left: 50%
+		transform: translateX(-50%)
+		max-width: calc(100% - 20px)
+.liveinternet
+	display: inline-block
+	position: absolute
+	bottom: 0
+	left: 0
+	img
+		display: block
 		
 /*ПОДВАЛ*/
 .footer

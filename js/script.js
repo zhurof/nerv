@@ -1,13 +1,14 @@
-﻿$('.top-block').slick({
-	arrows: false,
+﻿$('.top-block').on('init reInit',function(event,slider){
+	//для корректной работы position: sticky помещаем правую стрелки в отдельный блок
+	$(this).prepend('<div class="top-block__arrows"></div>');
+	$(this).find('.top-block__arrows').append(slider.$prevArrow).append(slider.$nextArrow);
+})
+$('.top-block').slick({
 	autoplay: true,
 	autoplaySpeed: 5000,
 	pauseOnHover: false,
-	dots: true,
-	dotsClass: 'slick-dots top-block__dots',
-	customPaging: function(){
-		return ''
-	},
+	prevArrow: '<span class="top-block__arrow top-block__arrow_prev"></span>',
+	nextArrow: '<span class="top-block__arrow top-block__arrow_next"></span>',
 	responsive: [
 		{
 			breakpoint: 1140,
@@ -40,6 +41,11 @@ $('.widget__head-btn').click(function(e){
 	}else{
 		widget.removeClass('active');
 	}	
+})
+
+$('.widget__close').click(function(){
+	$(this).parents('.widget').removeClass('active');
+	clearTimeout(widgetTimer);
 })
 
 $(document).click(function(e){
@@ -101,11 +107,7 @@ $('form').submit(function(e){
 		success: function(response){
 			$('#result .modal__body').text(response);
 			openModal('result',form);
+			grecaptcha.reset();
 		}
 	})
 })
-grecaptcha.ready(function() {
-	grecaptcha.execute('6LehPqwUAAAAANxEaqiE4iT-ANKVFwkS465QVSBw', {action: 'homepage'}).then(function(token) {
-		$('input[name=response]').val(token);
-	});
-});
