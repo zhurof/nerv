@@ -2,7 +2,9 @@
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
-	<title>Верстка</title>
+	<title>Нервокардин - новый препарат для поддержки и лечения сердечно-сосудистой и нервной системы, помощь при стрессах и высоких умственных и физических нагрузках.</title>
+	<meta name="description" content="Современное средство для профилактики заболеваний нервной и сердечно-сосудистой системы, рекомендованный для людей молодого, среднего и старшего возраста" />
+	<meta name="keywords" content="нервокардин, состав, бад, лечение, профилактика" />
 	<meta name="viewport" content="width=device-width, shrink-to-fit=no" />	
 	<link rel="stylesheet" href="css/fonts.css" />	
 	<link rel="stylesheet" href="libs/slick/slick.css" />
@@ -234,6 +236,8 @@
 				<div class="widget static logistics__widget">
 					<a href="#" class="btn btn_big widget__head-btn">проверить</a>
 					<div class="widget__body">
+						<span class="widget__close">❌</span>
+						<h3 class="widget__title">Проверить наличие</h3>
 						<a href="//tabletka.by" class="widget__item" target="_blank"><img src="img/seller.jpg" alt=""></a>
 						<a href="//103.by" class="widget__item" target="_blank"><img src="img/seller1.jpg" alt=""></a>
 						<a href="#" class="btn btn_small btn_green widget__btn">список аптечных сетей</a>
@@ -255,7 +259,7 @@
 			<div class="footer__notation">Перед применением рекомендуется проконсультироваться с врачом <strong>Не является лекарственным средством</strong></div>
 			<div class="footer__text">
 				<p>Свидетельство о государственной регистрации:<br> BY.70.06.01.003.E.00109.03.19 от 18.03.2019</p>
-				<p>Импортер и организация, уполномоченная принимать претензии от потребителя и ее юридический адрес: ООО «ФАСТЛАБ», аг. Самохваловичи, ул. Ковалева, д. 2, комн. 52 а, Минский район, Минская область, 223013, Республика Беларусь.  тел. +375 (29) 170 02 00, e-mail: info@fastlab.by</p>
+				<p>Импортер и организация, уполномоченная принимать претензии от потребителя и ее юридический адрес: ООО «ФАСТЛАБ»,<br> аг. Самохваловичи, ул. Ковалева, д. 2, комн. 52 а, Минский район, Минская область, 223013, Республика Беларусь.<br>  тел. +375 (29) 170 02 00, e-mail: info@fastlab.by</p>
 			</div>
 			<a href="https://oxygen-pharma.co.uk/" class="logo footer__logo"><img src="img/logo_white.svg" alt=""/></a>
 		</div>
@@ -280,8 +284,8 @@
 					<span class="field__label">Сообщение</span>
 					<textarea name="message" rows="5"></textarea>
 				</label>
-				<input type="hidden" name="response" value="">
-				<button class="btn btn_block modal__btn">Подать заявку</button>
+				<div class="g-recaptcha" data-sitekey="6LfSva0UAAAAAEnDyrtpYB5jk1g3lFQ4lmg1UdBn"></div>
+				<button class="btn btn_block modal__btn">Отправить</button>
 			</form>
 		</div>
 	</div>
@@ -289,9 +293,22 @@
 		<span class="modal__close">✕</span>
 		<div class="modal__body"></div>
 	</div>
-	<script src="https://www.google.com/recaptcha/api.js?render=6LehPqwUAAAAANxEaqiE4iT-ANKVFwkS465QVSBw"></script>
+	<script src="https://www.google.com/recaptcha/api.js" async defer></script>
 	<script src="libs/jquery/jquery-3.4.1.min.js"></script>
 	<script src="libs/slick/slick.min.js"></script>
-	<script src="js/script.js"></script>	
+	<script src="js/script.js"></script>
+	<!--LiveInternet counter-->
+	<script type="text/javascript">
+	document.write('<a href="//www.liveinternet.ru/click" '+
+	'target="_blank" class="liveinternet"><img src="//counter.yadro.ru/hit?t44.6;r'+
+	escape(document.referrer)+((typeof(screen)=='undefined')?'':
+	';s'+screen.width+'*'+screen.height+'*'+(screen.colorDepth?
+	screen.colorDepth:screen.pixelDepth))+';u'+escape(document.URL)+
+	';h'+escape(document.title.substring(0,150))+';'+Math.random()+
+	'" alt="" title="LiveInternet" '+
+	'border="0" width="31" height="31"><\/a>')
+	</script>
+	<!--/LiveInternet-->
+
 </body>
 </html>
